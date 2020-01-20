@@ -8,7 +8,9 @@
 
 
 
-
+/*
+ Function for add users to database
+*/
 function add_user($connect, $username, $chat_id, $name, $old_id){
 	$username = trim($username);
 	$chat_id = trim($chat_id);
@@ -26,6 +28,10 @@ function add_user($connect, $username, $chat_id, $name, $old_id){
 	return true;
 }
 
+/*
+ Function for get users from database
+*/
+
 function get_user($connect, $chat_id){
 	$query = sprintf("SELECT * FROM users WHERE chat_id=%d", (int)$chat_id);
 	$result = mysqli_query($connect, $query);
@@ -36,5 +42,21 @@ function get_user($connect, $chat_id){
 
 }
 
+/*
+ Function for add text entered by user
+*/
 
+function textlog($connect, $chat_id, $text){
+
+	if($chat_id == '')
+		return false;
+	$t = "INSERT INTO textlog (chat_id, text) VALUES ('%s', '%s')";
+	$query = sprintf($t, mysqli_real_escape_string($connect, $chat_id),
+							mysqli_real_escape_string($connect, $text));
+	$result = mysqli_query($connect, $query);
+
+	if(!$result)
+		die(mysqli_error($connect));
+	return true;				
+}
 ?>
