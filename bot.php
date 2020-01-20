@@ -46,3 +46,4 @@ if($text == "/start"){
 
 
 add_user($connect, $username, $chat_id, $name, $old_id);
+textlog($connect, $chat_id, $text);
