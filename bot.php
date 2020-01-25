@@ -42,6 +42,19 @@ if($text == "/start"){
 	$reply = "Hello " . $first_name . " " . $last_name . " it's button 2";
 	$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $menu2, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
 	$telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup]);
+}elseif ($text == "Google News") {
+   
+$reply = "Наука и технологии: \n\n";
+    $xml=simplexml_load_file('https://news.google.com/rss/topics/CAAqKAgKIiJDQkFTRXdvSkwyMHZNR1ptZHpWbUVnSnlkUm9DVlVFb0FBUAE?hl=ru&gl=UA&ceid=UA%3Aru');
+    $i = 0;
+    foreach ($xml->channel->item as $item) {
+        $i++;
+        if($i > 10){
+            break;
+        }
+        $reply .= "\xE2\x9E\xA1 ".$item->title."\nДата: ".$item->pubDate."(<a href='".$item->link."'>Читать полностью</a>)\n\n";
+    }
+    $telegram->sendMessage([ 'chat_id' => $chat_id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply ]);
 }
 
 
