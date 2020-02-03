@@ -16,7 +16,7 @@ include('settings.php');
 include('bot_lib.php');
 use Telegram\Bot\Api;
 
-$telegram = new Api('Your-Token');
+$telegram = new Api($api);
 $result = $telegram->getWebhookUpdates();
 
 $text = $result["message"]["text"];
