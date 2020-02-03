@@ -11,10 +11,10 @@ Install the library using the composer command:
 composer require irazasyed/telegram-bot-sdk ^2.0
 ```
 
-Register your bot in [BotFather](https://t.me/BotFather "BotFather") and insert the token in:
+Register your bot in [BotFather](https://t.me/BotFather "BotFather") and insert the token in settings.php:
 
 ```php
-$telegram = new Api('Your-Token');
+$api = 'Your-Token';
 ```
 
 Link to activate WebHooks:
@@ -50,10 +50,10 @@ Install the library using the composer command:
 composer require irazasyed/telegram-bot-sdk ^2.0
 ```
 
-Зарегистрируйте своего бота в [BotFather](https://t.me/BotFather "BotFather") и вставьте токен в:
+Зарегистрируйте своего бота в [BotFather](https://t.me/BotFather "BotFather") и вставьте токен в settings.php:
 
 ```php
-$telegram = new Api('Your-Token');
+$api = 'Your-Token';
 ```
 
 Ссылка для активации WebHooks:
