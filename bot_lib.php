@@ -59,4 +59,21 @@ function textlog($connect, $chat_id, $text){
 		die(mysqli_error($connect));
 	return true;				
 }
+/*
+Function to get all users from the database
+*/
+
+function users_all($connect){
+	$query = "SELECT * FROM users";
+	$result = mysqli_query($connect, $query);
+	if(!$result)
+		die(mysqli_error($connect));
+	$n = mysqli_num_rows($result);
+	$users_all = array();
+	for ($i = 0; $i <$n; $i++){
+		$row = mysqli_fetch_assoc($result);
+		$users_all[] = $row;
+	}
+	return $users_all;
+}
 ?>
