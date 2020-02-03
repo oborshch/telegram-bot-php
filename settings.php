@@ -5,7 +5,7 @@
 *  https://coderlog.top
 *  https://youtube.com/CoderLog
 ********************************************************/
-
+$api = 'Your-Token';
 define('MYSQL_SERVER', '');
 define('MYSQL_USER', '');
 define('MYSQL_PASSWORD', '');
