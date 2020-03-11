@@ -35,9 +35,10 @@ if($text == "/start"){
 	$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $menu, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
 	$telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup]);
 }elseif($text == "button 1"){
+    $img = 'img_url';
 	$reply = "Hello " . $first_name . " " . $last_name;
 	$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $menu, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
-	$telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $reply_markup]);
+	$telegram->sendPhoto(['chat_id' => $chat_id, 'photo' => $img, 'caption' => $reply, 'parse_mode' => 'HTML']);
 }elseif($text == "button 2"){
 	$reply = "Hello " . $first_name . " " . $last_name . " it's button 2";
 	$reply_markup = $telegram->replyKeyboardMarkup([ 'keyboard' => $menu2, 'resize_keyboard' => true, 'one_time_keyboard' => false ]);
