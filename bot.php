@@ -56,6 +56,14 @@ $reply = "Наука и технологии: \n\n";
         $reply .= "\xE2\x9E\xA1 ".$item->title."\nДата: ".$item->pubDate."(<a href='".$item->link."'>Читать полностью</a>)\n\n";
     }
     $telegram->sendMessage([ 'chat_id' => $chat_id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply ]);
+}elseif($text == "Inline"){
+    $reply = "Inline keyboard";
+    $inline[] = ['text'=>'CoderLog', 'url'=>'https://coderlog.top'];
+    $inline[] = ['text'=>'CoderLog Chat', 'url'=>'https://t.me/coderlog_channel'];
+    $inline = array_chunk($inline, 2);
+    $reply_markup = ['inline_keyboard'=>$inline];
+    $inline_keyboard = json_encode($reply_markup);
+    $telegram->sendMessage(['chat_id' => $chat_id, 'text' => $reply, 'reply_markup' => $inline_keyboard]);
 }
 
 
